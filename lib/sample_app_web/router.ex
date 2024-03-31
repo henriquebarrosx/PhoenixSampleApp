@@ -17,7 +17,10 @@ defmodule SampleAppWeb.Router do
   scope "/", SampleAppWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/", StaticPageController, :home, as: :root
+    get "/static-pages/home", StaticPageController, :home
+    get "/static-pages/help", StaticPageController, :help
+    get "/static-pages/about", StaticPageController, :about
   end
 
   # Other scopes may use custom stacks.
